@@ -1,0 +1,30 @@
+\begin{verbatim}
+    class Student {
+    int rollNo;
+    String name;
+    // Parameterized constructor
+    public Student(int rollNo, String name) {
+        this.rollNo = rollNo;
+        this.name = name;
+    }
+    // Static method to check equality of two Student objects
+    public static boolean isEqual(Student s1, Student s2) {
+        return (s1.rollNo == s2.rollNo) && 
+        (s1.name.equals(s2.name));
+    }
+}
+public class StudentDemo {
+    public static void main(String[] args) {
+        // Creating two student objects
+        Student student1 = new Student(101, "Alice");
+        Student student2 = new Student(101, "Alice");
+
+        // Check if students are equal
+        if (Student.isEqual(student1, student2)) {    
+        System.out.println("Both student objects are equal.");
+        } else {
+        System.out.println("Student objects are not equal.");
+        }
+    }
+}
+\end{verbatim}

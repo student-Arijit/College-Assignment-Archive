@@ -1,0 +1,57 @@
+\begin{verbatim}
+import java.util.Arrays;
+
+import java.util.Collections;
+
+import java.util.Scanner;
+
+public class HalfSortArray {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        // Take array size input
+        System.out.print("Enter the number of elements: ");
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        // Take array elements input
+        System.out.println("Enter the elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+            
+        }
+        
+        int mid = n / 2;
+        
+        // Sort first half in ascending order
+        
+        Arrays.sort(arr, 0, mid);
+        
+        // Copy second half to Integer[] for reverse sorting
+        Integer[] secondHalf = new Integer[n - mid];
+        
+        for (int i = mid; i < n; i++) {
+            secondHalf[i - mid] = arr[i];
+        }
+        
+        // Sort second half in descending order
+        
+        Arrays.sort(secondHalf, Collections.reverseOrder());
+
+        // Copy back to original array
+        
+        for (int i = mid; i < n; i++) {
+            arr[i] = secondHalf[i - mid];
+        }
+        
+        // Print the result
+        System.out.println("Array after sorting 
+        
+        half ascending and half descending:");
+        
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        scanner.close();
+    }
+}
+\end{verbatim}

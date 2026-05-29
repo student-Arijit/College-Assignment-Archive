@@ -1,0 +1,63 @@
+\begin{verbatim}
+    public class MyPoint {
+    // Instance variables
+    private int x;
+    private int y;
+    // Default constructor
+    public MyPoint() {
+        this.x = 0;
+        this.y = 0;
+    }
+    // Overloaded constructor
+    public MyPoint(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+    // Setter method to set x and y
+    public void setXY(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+    // Getter method to return x and y in an array
+    public int[] getXY() {
+        return new int[]{x, y};
+    }
+    // toString method to return the point in (x, y) format
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
+    // Method to calculate distance from this 
+    point to another (x, y)
+    public double distance(int x, int y) {
+        int dx = this.x - x;
+        int dy = this.y - y;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+}
+public class TestMyPoint {
+    public static void main(String[] args) {
+        // Test default constructor
+        MyPoint p1 = new MyPoint();
+        System.out.println("Default point: " + 
+        p1); // (0, 0)
+        // Test overloaded constructor
+        MyPoint p2 = new MyPoint(3, 4);
+        System.out.println("Parameterized point: 
+        " + p2); // (3, 4)
+        // Test setXY()
+        p1.setXY(1, 2);
+        System.out.println("Updated p1 using 
+        setXY(): " + p1); // (1, 2)
+        // Test getXY()
+        int[] coords = p1.getXY();
+        System.out.println("Coordinates of p1 
+        using getXY(): (" + coords[0] + ", " + 
+        coords[1] + ")");
+        // Test distance()
+        double dist = p1.distance(3, 4);
+        System.out.println("Distance from p1 to 
+        (3, 4): " + dist); // Expected: 2.828...
+    }
+}
+\end{verbatim}

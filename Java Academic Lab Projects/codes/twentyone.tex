@@ -1,0 +1,26 @@
+\begin{verbatim}
+    // Custom exception class
+class NegativeSizeException extends Exception {
+    public NegativeSizeException(String message) {
+        super(message);
+    }
+}
+public class NegativeSizeDemo {
+    public static void main(String[] args) {
+        try {
+            int size = -5; 
+            // Check for negative array size
+    if (size < 0) {
+ throw new NegativeSizeException("Array size cannot be negative:
+ " + size);
+            }
+int[] arr = new int[size];  // Only created if size is valid
+            System.out.println("Array of size " + size +
+            " created successfully.");
+        } catch (NegativeSizeException e) {
+     System.out.println("Caught Exception: "+ e.getMessage());
+        
+        }
+    }
+}
+\end{verbatim}

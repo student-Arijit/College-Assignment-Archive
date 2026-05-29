@@ -1,0 +1,36 @@
+\begin{verbatim}
+import java.util.Scanner;
+import java.util.LinkedHashSet;
+public class RemoveDuplicatesFromArray {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        // Input array size
+        System.out.print("Enter the size of the array: ");
+        int size = sc.nextInt();
+        int[] arr = new int[size];
+        System.out.println("Enter " + size + " elements:");
+        for (int i = 0; i < size; i++) {
+        arr[i] = sc.nextInt();}
+        LinkedHashSet<Integer> uniqueSet = new LinkedHashSet<>();
+        for (int num : arr) {
+        uniqueSet.add(num); }
+        // Convert back to array (if needed) and display result
+        int[] uniqueArray = new int[uniqueSet.size()];
+        int i = 0;
+        for (int num : uniqueSet) {
+            uniqueArray[i++] = num;
+        }
+        // Output results
+        System.out.println("Array after removing duplicates:");
+        
+        for (int val:uniqueArray)
+        {
+            System.out.print(val + " ");
+        }
+    System.out.println("Newlengt array:"+uniqueArray.length);
+
+        sc.close();
+    }
+}
+
+\end{verbatim}

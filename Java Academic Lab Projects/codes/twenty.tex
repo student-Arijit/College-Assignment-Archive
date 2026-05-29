@@ -1,0 +1,61 @@
+\begin{verbatim}
+class Employee {
+String name;
+double salary;
+double pf;
+double allowance;
+double totalSalary;
+// Default constructor
+public Employee() {
+        name = "Unknown";
+        salary = 0;
+        pf = 0;
+        allowance = 0;
+        totalSalary = 0;
+}
+// Constructor with Employee object as parameter. 
+public Employee(Employee e) {
+        this.name = e.name;
+        this.salary = e.salary;
+        this.pf = e.pf;
+        this.allowance = e.allowance;
+        this.totalSalary = e.totalSalary;
+}
+
+public Employee(String name, double salary) {
+        this.name = name;
+        this.salary = salary;
+}
+// Method to calculate PF, Allowance,and Total Salary
+public Employee calculate() {
+Employee result = new Employee(this); 
+        result.pf = 0.12 * salary;          // 12% PF
+        result.allowance = 0.20 * salary;   // 20% Allowance
+     result.totalSalary = salary + result.allowance - result.pf;
+        return result;
+}
+    // Display employee details
+public void display() {
+        System.out.println("Employee Name     : " + name);
+        System.out.println("Basic Salary      : " + salary);
+        System.out.println("PF (12%)          : " + pf);
+        System.out.println("Allowance (20%)   : " + allowance);
+        System.out.println("Total Salary      : " + totalSalary);
+        System.out.println("----------------------------------");
+    }
+}
+// Test Driver
+public class EmployeeDemo {
+    public static void main(String[] args) {
+        // Create employee object with basic details
+        Employee e1 = new Employee("John Doe", 50000);
+
+        // Calculate PF, Allowance, and Total Salary
+        Employee result = e1.calculate();
+
+        // Display result
+        result.display();
+    }
+}
+
+\end{verbatim}

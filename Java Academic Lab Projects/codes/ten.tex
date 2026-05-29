@@ -1,0 +1,51 @@
+\begin{verbatim}
+import java.util.Scanner;
+public class RemoveElementFromArray {
+
+public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        // Input array size
+        System.out.print("Enter the size of the array: ");
+        int size = sc.nextInt();
+        // Input array elements
+        int[] arr = new int[size];
+        System.out.println("Enter " + size + " elements:");
+        for (int i = 0; i < size; i++) {
+            arr[i] = sc.nextInt();
+        }
+        
+        // Input element to remove
+        System.out.print("Enter element to remove: ");
+        int target = sc.nextInt();
+        // Remove element
+        int[] newArr = new int[size - 1];
+        boolean found = false;
+        int j = 0;
+        for (int i = 0; i < size; i++) {
+            if (arr[i] == target && !found) {
+                found = true; // Skip the first occurrence
+                continue;
+            }
+            if (j < newArr.length)
+                newArr[j++] = arr[i];
+        }
+        
+        // Display result
+        if (!found) {
+            System.out.println("Element not found in the 
+            array.");
+        } else {
+            System.out.println("Array after removing " + target 
+            + ":");
+            for (int i = 0; i < newArr.length; i++) {
+                System.out.print(newArr[i] + " ");
+            }
+            System.out.println();
+        }
+        
+        sc.close();
+    }
+}
+
+\end{verbatim}

@@ -1,0 +1,37 @@
+\begin{verbatim}
+class Box {
+private double length;
+private double breadth;
+private double height;
+// Parameterized constructor with object argument
+    public Box(Box other) {
+        this.length = other.length;
+        this.breadth = other.breadth;
+        this.height = other.height;
+    }
+// Parameterized constructor to create initial box
+    public Box(double length, double breadth, double height) {
+        this.length = length;
+        this.breadth = breadth;
+        this.height = height;
+    }
+// Method to calculate volume
+    public double volume() {
+        return length * breadth * height;
+    }
+}
+public class BoxDemo {
+    public static void main(String[] args) {
+        // Create original box
+        Box originalBox = new Box(3.0, 4.0, 5.0);
+
+        // Create another box using object of the first
+        Box copiedBox = new Box(originalBox);
+
+        // Print volumes
+       
+System.out.println("Volumeoforiginal box:"+originalBox.volume());
+System.out.println("Volume of copied box: "+ copiedBox.volume());
+    }
+}
+\end{verbatim}

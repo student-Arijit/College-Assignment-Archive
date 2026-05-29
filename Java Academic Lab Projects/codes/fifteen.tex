@@ -1,0 +1,27 @@
+\begin{verbatim}
+import java.util.Scanner;
+public class CompareStringsLexicographically {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        // Input two strings
+        System.out.print("Enter first string: ");
+        String str1 = sc.nextLine();
+        System.out.print("Enter second string: ");
+        String str2 = sc.nextLine();
+        // Lexicographic comparison
+        int result = str1.compareTo(str2);
+        // Output result
+        if (result == 0) {
+            System.out.println("Both strings are equal.");
+        } else if (result < 0) {
+    System.out.println("\"" + str1 + "\" is lexicographically 
+ less than \"" + str2 + "\"");
+        } else {
+    System.out.println("\"" + str1 + "\" is lexicographically
+    greater than \"" + str2 + "\"");
+        }
+        sc.close();
+    }
+}
+
+\end{verbatim}

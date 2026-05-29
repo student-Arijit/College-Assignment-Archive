@@ -1,0 +1,49 @@
+\begin{verbatim}
+    // Interface defining engine functionalities
+interface Engine {
+    void speedUp(int value);
+    void changeGear(int value);
+}
+// Class implementing the Engine interface
+class VehicleEngine implements Engine {
+    private int speed;
+    private int gear;
+    // Constructor
+    public VehicleEngine(int speed, int gear) {
+        this.speed = speed;
+        this.gear = gear;
+    }
+    // Implement speedUp method
+    @Override
+    public void speedUp(int value) {
+        speed += value;
+        System.out.println("Speed increased to: " 
+        + speed + " km/h");
+    }
+    // Implement changeGear method
+    @Override
+    public void changeGear(int value) {
+        gear = value;
+        System.out.println("Gear changed to: " + 
+        gear);
+    }
+    // Display current status
+    public void showStatus() {
+        System.out.println("Current Speed: " + 
+        speed + " km/h, Gear: " + gear);
+    }
+}
+// Test driver class
+public class TestVehicleEngine {
+    public static void main(String[] args) {
+        VehicleEngine car = new VehicleEngine(0, 1);
+        car.showStatus();
+        car.speedUp(20);
+        car.changeGear(2);
+        car.speedUp(30);
+        car.changeGear(3);
+        car.showStatus();
+    }
+}
+
+\end{verbatim}

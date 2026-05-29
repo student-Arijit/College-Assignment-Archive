@@ -1,0 +1,45 @@
+\begin{verbatim}
+import java.util.Scanner;
+public class InsertElementInArray {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        // Input array size
+        System.out.print("Enter the size of the array: ");
+        int size = sc.nextInt();
+        // Create and input array
+        int[] arr = new int[size + 1];  // +1 to 
+        accommodate new element
+        System.out.println("Enter " + size + " elements:");
+        for (int i = 0; i < size; i++) {
+            arr[i] = sc.nextInt();
+        }
+        // Input element and position
+        System.out.print("Enter the element to insert: ");
+        int element = sc.nextInt();
+        System.out.print("Enter the position (0 to " + size + "):
+        ");
+        int position = sc.nextInt();
+        // Validate position
+        if (position < 0 || position > size) {
+            System.out.println("Invalid position! Must be between 
+            0 and " + size);
+        } else {
+            // Shift elements to the right
+            for (int i = size; i > position; i--) {
+                arr[i] = arr[i - 1];
+            }
+            // Insert the element
+            arr[position] = element;
+
+            // Output new array
+            System.out.println("Array after insertion:");
+            for (int i = 0; i <= size; i++) {
+                System.out.print(arr[i] + " ");
+            }
+            System.out.println();
+        }
+        sc.close();
+    }
+}
+
+\end{verbatim}

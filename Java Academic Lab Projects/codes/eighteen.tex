@@ -1,0 +1,27 @@
+\begin{verbatim}
+import java.util.Scanner;
+public class CountWordsInString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        // Input the string
+        System.out.print("Input the string: ");
+        String input = sc.nextLine();
+
+        // Call method to count words
+        int wordCount = countWords(input);
+
+        // Output the result
+ System.out.println("Number of words in the string: "+wordCount);
+        sc.close();
+    }
+    // Method to count words
+    public static int countWords(String str) {
+// Trim leading/trailing spaces and split by one or more spaces
+        if (str == null || str.trim().isEmpty()) {
+            return 0;
+        }
+        String[] words = str.trim().split("\\s+");
+        return words.length;
+    }
+}
+\end{verbatim}

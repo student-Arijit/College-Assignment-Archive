@@ -1,0 +1,84 @@
+\begin{verbatim}
+    public class Student extends Person {
+    private String program;
+    private String year;
+    private double fees;
+
+    public Student(String name, String address, 
+    String program, String year, double fees) {
+        super(name, address);
+        this.program = program;
+        this.year = year;
+        this.fees = fees;
+    }
+
+    public void setStudent(String name, String 
+    address, String program, String year, double 
+    fees) {
+        setPerson(name, address);
+        this.program = program;
+        this.year = year;
+        this.fees = fees;
+    }
+    @Override
+    public String toString() {
+        return "Person[name=" + name + ", 
+        address=" + address + ", Program=" + 
+        program + ", Year=" + year + ", Fees=" + 
+        fees + "]";
+    }
+}
+public class Staff extends Person {
+    private String school;
+    private double pay;
+
+    public Staff(String name, String address, 
+    String school, double pay) {
+        super(name, address);
+        this.school = school;
+        this.pay = pay;
+    }
+    public void setStaff(String name, String 
+    address, String school, double pay) {
+        setPerson(name, address);
+        this.school = school;
+        this.pay = pay;
+    }
+    @Override
+    public String toString() {
+        return "Person[name=" + name + ", 
+        address=" + address + ", School=" + 
+        school + ", Pays=" + pay + "]";
+    }
+}
+public class TestMain {
+    public static void main(String[] args) {
+        // Test Person
+        
+        Person p = new Person("John Doe", "123 
+        Main St");
+        System.out.println(p);
+        p.setPerson("Jane Doe", "456 Oak Ave");
+        System.out.println("After update: " + p);
+
+        // Test Student
+        Student s = new Student("Alice", "789 
+        Park Blvd", "Computer Science", "2025", 
+        45000.50);
+        System.out.println(s);
+        s.setStudent("Alice Smith", "321 Elm St", 
+        "AI & ML", "2026", 50000.75);
+        System.out.println("After update: " + s);
+
+        // Test Staff
+        
+        Staff st = new Staff("Bob", "654 Maple 
+        Rd", "Greenwood High", 30000);
+        System.out.println(st);
+        st.setStaff("Bob Johnson", "999 Pine St", 
+        "Sunshine School", 35000);
+        System.out.println("After update: " + st);
+    }
+}
+
+\end{verbatim}

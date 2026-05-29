@@ -1,0 +1,36 @@
+\begin{verbatim}
+import java.util.Scanner;
+public class FindPairsWithSum {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        // Input array size and elements
+        System.out.print("Enter the size of the array: ");
+        int size = sc.nextInt();
+        int[] arr = new int[size];
+        System.out.println("Enter " + size + " array elements:");
+        for (int i = 0; i < size; i++) {
+            arr[i] = sc.nextInt();
+        }
+        // Input target sum
+        System.out.print("Enter the target sum: ");
+        int target = sc.nextInt();
+        boolean found = false;
+        System.out.println("Pairs with sum " + target + " are:");
+        // Find all pairs
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = i + 1; j < size; j++) {
+                if (arr[i] + arr[j] == target) {
+                    System.out.println(arr[i] + " + "
+                    + arr[j] + " = " + target);
+                    found = true;
+                }
+            }
+        }
+        if (!found) {
+            System.out.println("No pairs found.");
+        }
+        sc.close();
+    }
+}
+
+\end{verbatim}

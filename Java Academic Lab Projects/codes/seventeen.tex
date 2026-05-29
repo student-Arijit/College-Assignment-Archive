@@ -1,0 +1,24 @@
+\begin{verbatim}
+public class PermutationsWithRepetition {
+public static void main(String[] args) {
+        String input = "PQR";
+        int length = input.length();
+        System.out.println("The given string is: " + input);
+        System.out.println("The permuted strings are:");
+        generatePermutations(input, "", length);
+    }
+    
+public static void generatePermutations
+(String input, String result, int length) {
+        if (result.length() == length) {
+            System.out.println(result);
+            return;
+        }
+        for (int i = 0; i < input.length(); i++) {
+            
+generatePermutations(input, result + input.charAt(i), length);
+        
+        }
+    }
+}
+\end{verbatim}

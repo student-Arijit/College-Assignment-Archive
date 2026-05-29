@@ -1,0 +1,72 @@
+\begin{verbatim}
+    // Abstract class
+abstract class Employee {
+    String name;
+    int id;
+    double basicSalary;
+    public Employee(String name, int id, double basicSalary) {
+        this.name = name;
+        this.id = id;
+        this.basicSalary = basicSalary;
+    }
+    // Abstract method to calculate net salary
+    abstract double calculateNetSalary();
+    // Method to display employee details
+    public void display() {
+        System.out.println("Employee ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Basic Salary: " + basicSalary);
+    }
+}
+// Manager class
+class Manager extends Employee {
+    public Manager(String name, int id, double basicSalary) {
+        super(name, id, basicSalary);
+    }
+    @Override
+    double calculateNetSalary() {
+        // Example: 20% allowance and 10% deduction
+        double allowance = 0.20 * basicSalary;
+        double deduction = 0.10 * basicSalary;
+        return basicSalary + allowance - deduction;
+    }
+    @Override
+    public void display() {
+        super.display();
+        System.out.println("Position: Manager");
+        System.out.println("Net Salary: " + calculateNetSalary());
+    }
+}
+// Clerk class
+class Clerk extends Employee {
+    public Clerk(String name, int id, double basicSalary) {
+        super(name, id, basicSalary);
+    }
+    @Override
+    double calculateNetSalary() {
+        // Example: 10% allowance and 5% deduction
+        double allowance = 0.10 * basicSalary;
+        double deduction = 0.05 * basicSalary;
+        return basicSalary + allowance - deduction;
+    }
+    @Override
+    public void display() {
+        super.display();
+        System.out.println("Position: Clerk");
+        System.out.println("Net Salary: " + calculateNetSalary());
+    }
+}
+// Main class
+public class EmployeeDemo {
+    public static void main(String[] args) {
+        Employee emp1 = new Manager("Alice", 101, 50000);
+        Employee emp2 = new Clerk("Bob", 102, 30000);
+
+        System.out.println("=== Manager Details ===");
+        emp1.display();
+
+        System.out.println("\n=== Clerk Details ===");
+        emp2.display();
+    }
+}
+\end{verbatim}

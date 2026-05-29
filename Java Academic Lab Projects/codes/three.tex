@@ -1,0 +1,27 @@
+\begin{verbatim}
+import java.util.Scanner;
+public class RemoveConsonants {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        // Take input from user
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+        // Convert string to lowercase for uniformity
+        StringBuilder result = new StringBuilder();
+        for (char ch : input.toCharArray()) {
+            if (isVowel(ch) || !Character.isLetter(ch)) {
+                result.append(ch);
+            }
+        }
+        // Print the result string
+        System.out.println("String after removing 
+        consonants: " + result.toString());
+
+        scanner.close();
+    }
+    // Function to check if a character is a vowel
+    private static boolean isVowel(char ch) {
+        return "AEIOUaeiou".indexOf(ch) != -1;
+    }
+}
+\end{verbatim}

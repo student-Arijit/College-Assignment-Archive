@@ -1,0 +1,64 @@
+\begin{verbatim}
+    import java.util.Scanner;
+public class MatrixMinValues {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input number of rows and columns
+        System.out.print("Enter number of rows: ");
+        int rows = scanner.nextInt();
+
+        System.out.print("Enter number of columns: ");
+        int cols = scanner.nextInt();
+
+        int[][] matrix = new int[rows][cols];
+
+        // Input matrix elements
+        System.out.println("Enter matrix elements:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+        int[] rowMin = new int[rows];
+        int[] colMin = new int[cols];
+
+        // Find row minimums
+        for (int i = 0; i < rows; i++) {
+            int min = matrix[i][0];
+            for (int j = 1; j < cols; j++) {
+                if (matrix[i][j] < min) {
+                    min = matrix[i][j];
+                }
+            }
+            rowMin[i] = min;
+        }
+        // Find column minimums
+        for (int j = 0; j < cols; j++) {
+            int min = matrix[0][j];
+            for (int i = 1; i < rows; i++) {
+                if (matrix[i][j] < min) {
+                    min = matrix[i][j];
+                }
+            }
+            colMin[j] = min;
+        }
+        // Print matrix with row minimums
+        System.out.println("\nMatrix with row minimums:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print(matrix[i][j] + "\t");
+            }
+            System.out.println(rowMin[i]);
+        }
+
+        // Print column minimums
+        System.out.println();
+        for (int j = 0; j < cols; j++) {
+            System.out.print(colMin[j] + "\t");
+        }
+
+        scanner.close();
+    }
+}
+\end{verbatim}
