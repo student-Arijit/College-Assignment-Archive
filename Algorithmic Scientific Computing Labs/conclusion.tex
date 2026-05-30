@@ -1,0 +1,148 @@
+\newcommand{\conone}{\\
+The Gauss–Seidel method was successfully implemented to solve a system of linear equations. The program iteratively improved the solution until the error fell below the specified tolerance ($\varepsilon = 10^{-6}$). The final output shows the approximate values of the unknowns along with the number of iterations required for convergence.
+
+This experiment demonstrates how iterative methods can be effectively used when direct methods (like Gaussian elimination) are computationally expensive for large systems. The convergence of the Gauss–Seidel method depends on factors such as the initial guess, the tolerance value, and the properties of the coefficient matrix (e.g., diagonal dominance or positive definiteness).
+
+Through this practical, we conclude that the Gauss–Seidel method provides an efficient and reliable numerical approach for solving linear systems, especially for problems arising in engineering and scientific computations.
+}
+
+\newcommand{\contwo}{\\
+The Bisection Method was successfully implemented to approximate the root of the 
+nonlinear equation $f(x) = x^3 - x - 2 = 0$. The algorithm repeatedly halved the 
+interval $[a,b]$ and selected the subinterval where the sign change occurred until 
+the width of the interval was smaller than the specified tolerance 
+($\varepsilon = 10^{-6}$).  
+
+The program produced the approximate root within the required accuracy, demonstrating 
+the reliability of the method. This practical shows that the Bisection Method is 
+simple, robust, and guaranteed to converge when the initial interval satisfies 
+$f(a)f(b) < 0$. However, it converges relatively slowly compared to other iterative 
+methods such as the Newton--Raphson method.  
+
+Thus, we conclude that the Bisection Method is a fundamental and dependable 
+technique for solving nonlinear equations when an initial bracketing interval is known.
+}
+
+\newcommand{\conthree}{\\
+
+The Newton--Raphson Method was successfully implemented to approximate the root of 
+the nonlinear equation $f(x) = x^2 - 4x - 10$. Starting with an initial guess $x_0 = 2$, 
+the method iteratively applied the formula  
+
+\[
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+\]
+
+until the successive approximations differed by less than the tolerance 
+$\varepsilon = 10^{-6}$.  
+
+The program efficiently converged to the root, showing the rapid convergence 
+characteristic of the Newton--Raphson method when a suitable initial guess is chosen.  
+Compared to the Bisection Method, this approach requires fewer iterations and 
+provides higher computational efficiency. However, its success depends on the 
+initial approximation and the behavior of the derivative.  
+
+Thus, the Newton--Raphson Method is a powerful and fast numerical technique for 
+solving nonlinear equations, provided the assumptions of differentiability and 
+good initial guess are satisfied.
+}
+
+\newcommand{\confour}{\\
+The Java program successfully demonstrates the implementation of a class to represent a 2D point, including constructors, accessor and mutator methods, and a method to calculate the distance bThe Bisection Method was successfully implemented to approximate the root of the 
+nonlinear equation $f(x) = x^3 - x - 2 = 0$. The algorithm repeatedly halved the 
+interval $[a,b]$ and selected the subinterval where the sign change occurred until 
+the width of the interval was smaller than the specified tolerance 
+($\varepsilon = 10^{-6}$).  
+
+The program produced the approximate root within the required accuracy, demonstrating 
+the reliability of the method. This practical shows that the Bisection Method is 
+simple, robust, and guaranteed to converge when the initial interval satisfies 
+$f(a)f(b) < 0$. However, it converges relatively slowly compared to other iterative 
+methods such as the Newton--Raphson method.  
+}
+
+\newcommand{\confive}{\\
+The Gauss--Jordan elimination method was successfully implemented to compute the 
+inverse of a given $3 \times 3$ matrix. The program works by augmenting the input 
+matrix with the identity matrix and then applying row operations until the left 
+side becomes the identity matrix. The right side of the augmented matrix then 
+represents the required inverse.  
+
+This method provides a systematic approach to matrix inversion using elementary 
+row operations without explicitly relying on determinants or cofactors.  
+
+The implementation demonstrated that the Gauss--Jordan method is reliable and 
+straightforward for small systems. However, for larger matrices, it may involve 
+considerable computation and numerical instability. Despite this, it remains an 
+important and widely used technique in linear algebra, especially in solving 
+systems of equations and finding matrix inverses.
+}
+
+\newcommand{\consix}{\\
+The Trapezoidal Rule and Simpson’s $\tfrac{1}{3}$ Rule were successfully implemented 
+to approximate definite integrals numerically. Both methods are based on replacing the 
+integrand with simpler functions and then evaluating the area.  
+
+\begin{itemize}
+    \item \textbf{Trapezoidal Rule:} Approximates the area under the curve using 
+    trapezoids. It is simple, easy to implement, and works well for functions that 
+    are nearly linear within subintervals. The formula used is:
+    \[
+        I \approx \frac{h}{2}\left[ f(a) + f(b) + 2 \sum_{i=1}^{n-1} f(a+ih) \right]
+    \]
+
+    \item \textbf{Simpson’s 1/3 Rule:} Approximates the integral by fitting 
+    parabolas through every two subintervals. It provides higher accuracy compared 
+    to the trapezoidal rule when the function is smooth. The formula used is:
+    \[
+        I \approx \frac{h}{3}\left[ f(a) + f(b) + 4 \sum_{\substack{i=1 \\ i \text{ odd}}}^{n-1} f(a+ih) + 2 \sum_{\substack{i=2 \\ i \text{ even}}}^{n-2} f(a+ih) \right]
+    \]
+\end{itemize}
+
+The experiments show that Simpson’s Rule generally provides better accuracy 
+than the Trapezoidal Rule for the same number of intervals, since it uses 
+quadratic approximation instead of linear.
+}
+
+\newcommand{\conseven}{\\
+Euler’s method is simple and easy to implement but less accurate due to its linear approximation. 
+On the other hand, Runge--Kutta methods (especially RK4) provide much higher accuracy and stability, 
+making them more reliable for practical numerical solutions of differential equations.
+}
+
+\newcommand{\coneight}{\\
+Curve fitting using the least squares method provides a systematic way to approximate 
+the relationship between variables. In the case of the linear fit, the best fit line is 
+of the form $y = a + bx$, where $a$ and $b$ are obtained by minimizing the squared errors. 
+
+For exponential fitting, the model $y = ae^{bx}$ is used, which becomes linear after 
+taking $\ln y$, allowing the same least squares approach to determine $a$ and $b$. 
+
+Polynomial fitting, such as quadratic fitting, assumes a model of the form 
+$y = a + bx + cx^{2}$. This captures curvature in the data and is solved using 
+normal equations. 
+
+}
+
+\newcommand{\connine}{\\
+The Gauss Elimination method reduces a system of linear equations 
+
+a_{11}x_{1} + a_{12}x_{2} + \dots + a_{1n}x_{n} = b_{1}, \\\quad
+a_{21}x_{1} + a_{22}x_{2} + \dots + a_{2n}x_{n} = b_{2},\\
+ \quad \dots, \quad
+a_{n1}x_{1} + a_{n2}x_{2} + \dots + a_{nn}x_{n} = b_{n}
+
+into an upper triangular system through forward elimination.  
+
+The back substitution step then solves for the unknowns starting from 
+\[
+x_{n} = \frac{a_{n,n+1}}{a_{nn}},
+\]
+and recursively,
+\[
+x_{i} = \frac{1}{a_{ii}} \left( a_{i,n+1} - \sum_{j=i+1}^{n} a_{ij}x_{j} \right), \quad i=n-1,n-2,\dots,1.
+\]
+
+This approach is efficient for small to medium size systems and ensures exact solutions 
+in the absence of round-off errors or singularities.
+}

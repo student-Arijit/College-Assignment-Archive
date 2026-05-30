@@ -1,0 +1,360 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[margin=1in, left=1in, right=1in]{geometry}
+\usepackage[most, shadows]{tcolorbox}
+\usetikzlibrary{shadows}
+\usepackage[utf8]{inputenc}
+\usepackage{catchfile}
+\usepackage{xstring}
+\usepackage{etoolbox}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{pifont}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{caption}
+\usepackage{amsmath}
+\input{questions}
+\input{conclusion}
+\usepackage{tikz}
+\usepackage[pages=all]{background}
+\usetikzlibrary{calc}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[R]{Computational Math Assignment}
+\renewcommand{\headrulewidth}{0pt}
+\input{objective}
+\backgroundsetup{
+  scale=1,
+  color= black,
+  opacity=1,
+  angle=0,
+  contents={
+    \begin{tikzpicture}[remember picture,overlay]
+      \draw[line width=1pt]
+        ($(current page.north west)+(1cm,-1cm)$) 
+        rectangle 
+        ($(current page.south east)+(-1cm,1cm)$);
+    \end{tikzpicture}
+  }
+}
+
+% Problem Statement heading
+\newcommand{\prbst}[1]{
+    \underline{\textbf{Problem Statement-{#1}:-}}
+}
+
+% Define a custom box with shadow
+\newtcolorbox{searchbox}{
+  colback=white,
+  colframe=black,
+  sharp corners,
+  boxrule=0.5pt,
+  width=\textwidth,
+  enhanced,
+  drop shadow,
+}
+
+% question block
+\newcommand{\questionbox}[1]{
+  \begin{searchbox}
+    \textbf{#1}
+  \end{searchbox}
+}
+
+\begin{document}
+
+% Introduction Page
+\begin{center}
+    {\LARGE\underline{\textbf{Introduction}}}
+\end{center}
+\Large{\input{introduction}}
+
+%problem statement 1
+\newpage
+\LARGE{\prbst{1}}
+\questionbox{{\qone}}
+\begin{itemize}[label=\ding{112}]
+    \item{\underline{\textbf{Objective:-}}} 
+    \LARGE{\objone}
+    \item{\underline{\textbf{Algorithm:-}}}
+    \LARGE{\input{Algorithm/one}}
+    \item{\underline{\textbf{Code:-}}} 
+    \Large{\input{codes/one}}
+    \newpage
+    \item{\underline{\textbf{Output:- }}} {
+        \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \node[inner sep=0pt, drop shadow] (img) {\includegraphics[width=0.9\textwidth]{assets/one.png}};
+        \end{tikzpicture}
+        \caption*{\textbf{Figure 1}}
+        \label{fig:fig}
+        \end{figure}
+    }
+    \item{\underline{\textbf{Conclusion:- }}}
+    \LARGE{\conone}
+\end{itemize}
+
+%problem statement 2
+\newpage
+\LARGE{\prbst{2}}
+\questionbox{{\qtwo}}
+\begin{itemize}[label=\ding{112}]
+    \item{\underline{\textbf{Objective:-}}} 
+    \LARGE{\objtwo}
+
+    \item{\underline{\textbf{Algorithm:-}}}
+    \LARGE{\input{Algorithm/two}}
+    \newpage
+    \item{\underline{\textbf{Code:-}}} 
+    \Large{\input{codes/two}}
+    
+    \item{\underline{\textbf{Output:- }}} {
+        \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \node[inner sep=0pt, drop shadow] (img) {\includegraphics[width=0.6\textwidth]{assets/two.png}};
+        \end{tikzpicture}
+        \caption*{\textbf{Figure 2}}
+        \end{figure}
+    }
+    \newpage
+    \item{\underline{\textbf{Conclusion:- }}}
+    \LARGE{\contwo}
+\end{itemize}
+
+%problem statement 3
+\newpage
+\LARGE{\prbst{3}}
+\questionbox{{\qthree}}
+\begin{itemize}[label=\ding{112}]
+    \item{\underline{\textbf{Objective:-}}} 
+    \LARGE{\objthree}
+    \item{\underline{\textbf{Algorithm:-}}}
+    \LARGE{\input{Algorithm/three}}
+    \item{\underline{\textbf{Code:-}}} 
+    \Large{\input{codes/three}}
+    \item{\underline{\textbf{Output:- }}} {
+        \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \node[inner sep=0pt, drop shadow] (img) {\includegraphics[width=0.9\textwidth]{assets/three.png}};
+        \end{tikzpicture}
+        \caption*{\textbf{Figure 3}}
+        \label{fig:fig1_1}
+        \end{figure}
+    }  
+    \item{\underline{\textbf{Conclusion:- }}}
+    \LARGE{\conthree}
+\end{itemize}
+
+%problem statement 4
+\newpage
+\LARGE{\prbst{4}}
+\questionbox{{\qfour}}
+\begin{itemize}[label=\ding{112}]
+    \item{\underline{\textbf{Objective:-}}} 
+    \LARGE{\objfour}
+    \item{\underline{\textbf{Algorithm:-}}}
+    \LARGE{\input{Algorithm/four}}
+    \item{\underline{\textbf{Code:-}}} 
+    \Large{\input{codes/four}}
+    \item{\underline{\textbf{Output:- }}} {
+        \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \node[inner sep=0pt, drop shadow] (img) {\includegraphics[width=0.6\textwidth]{assets/four.png}};
+        \end{tikzpicture}
+        \caption*{\textbf{Figure 4}}
+        \label{fig:fig}
+        \end{figure}
+    }  
+    \item{\underline{\textbf{Conclusion:- }}}
+    \LARGE{\confour}
+\end{itemize}
+
+%problem statement 5
+\newpage
+\LARGE{\prbst{5}}
+\questionbox{{\qfive}}
+\begin{itemize}[label=\ding{112}]
+    \item{\underline{\textbf{Objective:-}}} 
+    \LARGE{\objfive}
+    \item{\underline{\textbf{Algorithm:-}}}
+    \LARGE{\input{Algorithm/five}}
+    \item{\underline{\textbf{Code:-}}} 
+    \Large{\input{codes/five}}
+    \item{\underline{\textbf{Output:- }}} {
+        \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \node[inner sep=0pt, drop shadow] (img) {\includegraphics[width=0.55\textwidth]{assets/five.png}};
+        \end{tikzpicture}
+        \caption*{\textbf{Figure 5}}
+        \label{fig:fig}
+        \end{figure}
+    }  
+    \item{\underline{\textbf{Conclusion:-} }}
+    \LARGE{\confive}
+\end{itemize}
+
+%problem statement 6
+\newpage
+\LARGE{\prbst{6}}
+\questionbox{{\qsix}}
+\begin{itemize}[label=\ding{112}]
+    \item{\underline{\textbf{Objective:-}}} 
+    \LARGE{\objsix}
+    \newpage
+    \item{\underline{\textbf{Algorithm:-}}}
+    \LARGE{\input{Algorithm/six}}
+    \item{\underline{\textbf{Code:-}}} 
+    \Large{\input{codes/six}}
+    \item{\underline{\textbf{Output:- }}} {
+        \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \node[inner sep=0pt, drop shadow] (img) {\includegraphics[width=0.4\textwidth]{assets/sixone.png}};
+        \end{tikzpicture}
+        \caption*{\textbf{Figure 6.1}}
+        \label{fig:fig}
+        \end{figure}
+
+        \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \node[inner sep=0pt, drop shadow] (img) {\includegraphics[width=0.6\textwidth]{assets/sixtwo.png}};
+        \end{tikzpicture}
+        \caption*{\textbf{Figure 6.2}}
+        \label{fig:fig}
+        \end{figure}
+    }  
+    \item{\underline{\textbf{Conclusion:-} }}
+    \LARGE{\consix}
+\end{itemize}
+
+%problem statement 7
+\newpage
+\LARGE{\prbst{7}}
+\questionbox{{\qseven}}
+\begin{itemize}[label=\ding{112}]
+    \item{\underline{\textbf{Objective:-}}} 
+    \LARGE{\objseven}
+    \item{\underline{\textbf{Algorithm:-}}}
+    \LARGE{\input{Algorithm/seven}}
+    \item{\underline{\textbf{Code:-}}} 
+    \Large{\input{codes/seven}}
+    \newpage
+    \item{\underline{Output:- }} {
+        \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \node[inner sep=0pt, drop shadow] (img) {\includegraphics[width=0.6\textwidth]{assets/sevenone.png}};
+        \end{tikzpicture}
+        \caption*{\textbf{Figure 7.1}}
+        \label{fig:fig}
+        \end{figure}
+
+        \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \node[inner sep=0pt, drop shadow] (img) {\includegraphics[width=0.6\textwidth]{assets/seventwo.png}};
+        \end{tikzpicture}
+        \caption*{\textbf{Figure 7.2}}
+        \label{fig:fig}
+        \end{figure}
+    }  
+    \item{\underline{\textbf{Conclusion:-} }}
+    \LARGE{\conseven}
+\end{itemize}
+
+%problem statement 8
+\newpage
+\LARGE{\prbst{8}}
+\questionbox{{\qeight}}
+\begin{itemize}[label=\ding{112}]
+    \item{\underline{\textbf{Objective:-}}} 
+    \LARGE{\objeight}
+    \newpage
+    \item{\underline{\textbf{Algorithm:-}}}
+    \LARGE{\input{Algorithm/eight}}
+    \item{\underline{\textbf{Code:-}}} 
+    \Large{\input{codes/eight}}
+    \item{\underline{\textbf{Output:-} }} {
+        \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \node[inner sep=0pt, drop shadow] (img) {\includegraphics[width=0.6\textwidth]{assets/eightone.png}};
+        \end{tikzpicture}
+        \caption*{\textbf{Figure 8.1}}
+        \label{fig:fig}
+        \end{figure}
+
+        \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \node[inner sep=0pt, drop shadow] (img) {\includegraphics[width=0.6\textwidth]{assets/eighttwo.png}};
+        \end{tikzpicture}
+        \caption*{\textbf{Figure 8.2}}
+        \label{fig:fig}
+        \end{figure}
+
+        \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \node[inner sep=0pt, drop shadow] (img) {\includegraphics[width=0.6\textwidth]{assets/eightthree.png}};
+        \end{tikzpicture}
+        \caption*{\textbf{Figure 8.3}}
+        \label{fig:fig}
+        \end{figure}
+    }  
+    \newpage
+    \item{\underline{\textbf{Conclusion:-} }}
+    \LARGE{\coneight}
+\end{itemize}
+
+%problem statement 9
+\newpage
+\LARGE{\prbst{9}}
+\questionbox{{\qnine}}
+\begin{itemize}[label=\ding{112}]
+    \item{\underline{\textbf{Objective:-}}} 
+    \LARGE{\objnine}
+    \newpage
+    \item{\underline{\textbf{Algorithm:-}}}
+    \LARGE{\input{Algorithm/nine}}
+    \item{\underline{\textbf{Code:-}}} 
+    \Large{\input{codes/nine}}
+    \item{\underline{\textbf{Output:-} }} {
+        \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \node[inner sep=0pt, drop shadow] (img) {\includegraphics[width=0.6\textwidth]{assets/nine.png}};
+        \end{tikzpicture}
+        \caption*{\textbf{Figure 9}}
+        \label{fig:fig}
+        \end{figure}
+    }  
+    \item{\underline{\textbf{Conclusion:- }}}
+    \LARGE{\connine}
+\end{itemize}
+
+%Acknowledgment
+\newpage
+\begin{center}
+    \underline{\textbf{\huge{Acknowledgment}}}
+\end{center}
+\begin{flushleft}
+\input{Acknowledgment}
+\end{flushleft}
+{\raggedleft Thank you,\\[3ex]
+\begin{tikzpicture}
+\draw [thick,dash dot] (0,1) -- (7,1);
+\end{tikzpicture}\\[1ex]
+[sign. of the mentor]
+\par
+}
+
+\end{document}

@@ -1,0 +1,195 @@
+\newcommand{\objone}{
+The objective of this practical is to implement the Gauss--Seidel iterative method 
+to solve a system of linear equations $\mathbf{A}\mathbf{x}=\mathbf{b}$. 
+The method updates each component of the solution vector successively using the formula
+\[
+x_i^{(k+1)} = \frac{1}{a_{ii}} \left( b_i - \sum_{j<i} a_{ij}x_j^{(k+1)} - \sum_{j>i} a_{ij}x_j^{(k)} \right), 
+\quad i=1,2,\dots,n.
+\]
+The aim is to develop a program for this algorithm, apply it to suitable test 
+systems, analyze its convergence behavior, and compare the number of iterations 
+and accuracy with other iterative methods such as the Jacobi method.
+}
+
+
+\newcommand{\objtwo}{
+The objective of this practical is to write and implement a program to find the root 
+of a nonlinear equation $f(x)=0$ using the Bisection Method. The method repeatedly 
+divides the interval $[a,b]$ into two halves and selects the subinterval where a 
+sign change occurs, based on the formula
+\[
+c = \frac{a+b}{2},
+\]
+where $c$ is the midpoint of the current interval. The process is continued until 
+the root is obtained within a desired tolerance. This practical also aims to study 
+the convergence, efficiency, and limitations of the Bisection Method compared to 
+other root-finding techniques.
+}
+
+
+\newcommand{\objthree}{
+The objective of this practical is to implement the Newton--Raphson method to find the 
+root of a given nonlinear equation $f(x)=0$. The method uses the tangent line at an 
+approximate root to iteratively improve the solution, based on the formula
+\[
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}.
+\]
+The aim is to develop a program for this algorithm, apply it to suitable test 
+functions, and analyze its convergence properties. This practical also focuses 
+on studying the rapid convergence of the Newton--Raphson method and comparing 
+its efficiency with bracketing methods such as the Bisection Method.
+}
+
+
+\newcommand{\objfour}{
+The objective of this practical is to develop a program to find the inverse of a 
+matrix using the Gauss--Jordan elimination method. The method is based on forming 
+the augmented matrix $[A|I]$ and applying row operations to transform it into 
+$[I|A^{-1}]$, where $A^{-1}$ is the required inverse matrix.  
+
+Mathematically,
+\[
+[A|I] \;\;\xrightarrow{\text{row operations}}\;\; [I|A^{-1}].
+\]
+
+The aim is to implement this algorithm, practice systematic row transformations, 
+and verify the correctness of the inverse by checking that $A A^{-1} = I$. This 
+practical also highlights the importance of matrix inversion in solving systems 
+of linear equations and other computational applications.
+}
+
+
+\newcommand{\objfive}{
+The objective of this practical is to implement the Lagrange interpolation method 
+to approximate a function from a given set of data points $(x_0, y_0), (x_1, y_1), 
+\dots, (x_n, y_n)$. The method constructs a polynomial of degree $n$ that passes 
+through all the given points, using the formula
+\[
+P(x) = \sum_{i=0}^{n} y_i \, L_i(x),
+\quad \text{where} \quad
+L_i(x) = \prod_{\substack{j=0 \\ j \neq i}}^{n} \frac{x - x_j}{x_i - x_j}.
+\]
+
+The aim is to develop a program to compute the interpolating polynomial, 
+evaluate it at desired points, and compare the interpolated values with the 
+original function. This practical also emphasizes the application of interpolation 
+in numerical analysis and its importance in approximating unknown values from 
+discrete data.
+}
+
+\newcommand{\objsix}{
+The objective of this practical is to write programs to approximate the value of a 
+definite integral $\int_a^b f(x)\,dx$ using the Trapezoidal Rule and Simpson's 
+$\tfrac{1}{3}$ Rule.  
+
+The Trapezoidal Rule is based on approximating the area under the curve with 
+trapezoids, given by
+\[
+\int_a^b f(x)\,dx \approx \frac{h}{2} \left[ f(x_0) + 2\sum_{i=1}^{n-1} f(x_i) + f(x_n) \right],
+\]
+where $h = \frac{b-a}{n}$ and $n$ is the number of subintervals.  
+
+Simpson's $\tfrac{1}{3}$ Rule uses parabolic arcs for approximation, expressed as
+\[
+\int_a^b f(x)\,dx \approx \frac{h}{3} \left[ f(x_0) + 4\sum_{\substack{i=1 \\ i\;\text{odd}}}^{n-1} f(x_i) 
++ 2\sum_{\substack{i=2 \\ i\;\text{even}}}^{n-2} f(x_i) + f(x_n) \right],
+\]
+where $n$ is even.  
+
+The aim is to implement these rules in a program, compare the approximations with the 
+exact values, analyze their accuracy, and study the effect of increasing the number of 
+subintervals on the error.
+}
+
+\newcommand{\objseven}{
+The objective of this practical is to implement numerical methods for solving 
+ordinary differential equations (ODEs) of the form
+\[
+\frac{dy}{dx} = f(x,y), \quad y(x_0) = y_0,
+\]
+using Euler's Method and Runge--Kutta Methods of second and fourth order.  
+
+Euler's Method is given by
+\[
+y_{n+1} = y_n + h f(x_n, y_n),
+\]
+where $h$ is the step size.  
+
+The Second-Order Runge--Kutta Method (RK2) can be expressed as
+\[
+k_1 = h f(x_n, y_n), \quad
+k_2 = h f(x_n + h, \, y_n + k_1), \quad
+y_{n+1} = y_n + \tfrac{1}{2}(k_1 + k_2).
+\]
+
+The Fourth-Order Runge--Kutta Method (RK4) is defined as
+\[
+\begin{aligned}
+k_1 &= h f(x_n, y_n), \\
+k_2 &= h f(x_n + \tfrac{h}{2}, \, y_n + \tfrac{k_1}{2}), \\
+k_3 &= h f(x_n + \tfrac{h}{2}, \, y_n + \tfrac{k_2}{2}), \\
+k_4 &= h f(x_n + h, \, y_n + k_3), \\
+y_{n+1} &= y_n + \tfrac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4).
+\end{aligned}
+\]
+
+The aim is to implement these algorithms, compare their numerical solutions with 
+analytical solutions where available, study their accuracy and stability, and 
+observe the effect of step size on the error.
+}
+
+\newcommand{\objeight}{
+The objective of this practical is to fit linear, exponential, and polynomial curves 
+to a given set of discrete data points using the Least Squares Method. The method 
+minimizes the sum of squared errors between the observed data and the fitted curve.  
+
+For Linear Curve Fitting ($y = a + bx$), the normal equations are
+\[
+\sum y = na + b \sum x, 
+\qquad 
+\sum xy = a \sum x + b \sum x^2.
+\]
+
+For Exponential Curve Fitting ($y = ae^{bx}$), taking logarithms gives
+\[
+\ln y = \ln a + bx,
+\]
+which reduces to a linear least squares problem.  
+
+For Polynomial Curve Fitting ($y = a_0 + a_1x + a_2x^2 + \dots + a_mx^m$), the normal 
+equations are obtained as
+\[
+\begin{align}
+\sum x^k y &= a_0 \sum x^k + a_1 \sum x^{k+1} + \dots + a_m \sum x^{k+m}, \\
+           &\quad k = 0,1,\dots,m.
+\end{align}
+\]
+
+The aim is to implement programs for these curve fitting techniques, determine the 
+best-fit parameters, evaluate the goodness of fit, and compare fitted curves with the 
+original data graphically.
+}
+
+\newcommand{\objnine}{
+The objective of this practical is to solve a system of linear equations 
+$\mathbf{A}\mathbf{x}=\mathbf{b}$ using the Gauss Elimination Method and the 
+Gauss--Jordan Method. These are direct methods based on systematic row operations 
+to reduce the coefficient matrix to a simpler form.  
+
+In the Gauss Elimination Method, the system is transformed into an upper triangular 
+system by forward elimination, followed by back substitution:
+\[
+U\mathbf{x} = \mathbf{c},
+\]
+where $U$ is upper triangular.  
+
+In the Gauss--Jordan Method, the augmented matrix $[A|b]$ is reduced by row 
+operations into the form
+\[
+[I|x],
+\]
+where $I$ is the identity matrix and $\mathbf{x}$ is the solution vector.  
+
+The aim is to implement programs for both methods, apply them to test systems, 
+and compare their efficiency, computational steps, and accuracy.
+}
