@@ -1,0 +1,13 @@
+\begin{algorithm}[H]
+\caption{Gauss-Jordan Method for Matrix Inversion}
+\begin{algorithmic}[1]
+\STATE Form augmented matrix $[A|I]$
+\FOR{$i = 1$ to $n$}
+    \STATE Divide $i$-th row by pivot $a_{ii}$ to make pivot = 1
+    \FOR{$j = 1$ to $n, j \neq i$}
+        \STATE Subtract $a_{ji}$ times $i$-th row from $j$-th row
+    \ENDFOR
+\ENDFOR
+\STATE Resulting matrix is $[I|A^{-1}]$
+\end{algorithmic}
+\end{algorithm}

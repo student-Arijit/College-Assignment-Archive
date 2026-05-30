@@ -1,0 +1,31 @@
+\subsubsection*{(a) Trapezoidal Rule}
+\begin{algorithm}[H]
+\caption{Trapezoidal Rule}
+\begin{algorithmic}[1]
+\STATE Divide interval $[a,b]$ into $n$ equal parts, $h=\dfrac{b-a}{n}$
+\STATE $I = f(a) + f(b)$
+\FOR{$i=1$ to $n-1$}
+    \STATE $I \gets I + 2f(a+ih)$
+\ENDFOR
+\STATE $I \gets \dfrac{h}{2} I$
+\STATE Return $I$
+\end{algorithmic}
+\end{algorithm}
+
+\subsubsection*{(b) Simpson’s 1/3 Rule}
+\begin{algorithm}[H]
+\caption{Simpson’s 1/3 Rule}
+\begin{algorithmic}[1]
+\STATE Divide interval $[a,b]$ into even $n$ parts, $h=\dfrac{b-a}{n}$
+\STATE $I = f(a) + f(b)$
+\FOR{$i=1$ to $n-1$}
+    \IF{$i$ is odd}
+        \STATE $I \gets I + 4f(a+ih)$
+    \ELSE
+        \STATE $I \gets I + 2f(a+ih)$
+    \ENDIF
+\ENDFOR
+\STATE $I \gets \dfrac{h}{3} I$
+\STATE Return $I$
+\end{algorithmic}
+\end{algorithm}

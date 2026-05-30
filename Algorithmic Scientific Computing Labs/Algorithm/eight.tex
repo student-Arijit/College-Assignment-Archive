@@ -1,0 +1,33 @@
+\\{(a) Linear Fit}
+\begin{algorithm}[H]
+\caption{Linear Curve Fit $y=a+bx$}
+\begin{algorithmic}[1]
+\STATE Compute sums: $\sum x$, $\sum y$, $\sum xy$, $\sum x^2$
+\STATE Solve normal equations:
+\STATE $a n + b \sum x = \sum y$
+\STATE $a \sum x + b \sum x^2 = \sum xy$
+\STATE Return $a, b$
+\end{algorithmic}
+\end{algorithm}
+{(b) Exponential Fit}
+\begin{algorithm}[H]
+\caption{Exponential Fit $y = ae^{bx}$}
+\begin{algorithmic}[1]
+\STATE Transform to $\ln y = \ln a + bx$
+\STATE Compute $\sum x, \sum \ln y, \sum x \ln y, \sum x^2$
+\STATE Solve normal equations for $\ln a, b$
+\STATE Return $a = e^{\ln a}, b$
+\end{algorithmic}
+\end{algorithm}
+{(c) Polynomial Fit (Quadratic)}
+\begin{algorithm}[H]
+\caption{Quadratic Fit $y = a+bx+cx^2$}
+\begin{algorithmic}[1]
+\STATE Compute $\sum x, \sum x^2, \sum x^3, \sum x^4, \sum y, \sum xy, \sum x^2y$
+\STATE Solve normal equations:
+\STATE $a n + b \sum x + c \sum x^2 = \sum y$
+\STATE $a \sum x + b \sum x^2 + c \sum x^3 = \sum xy$
+\STATE $a \sum x^2 + b \sum x^3 + c \sum x^4 = \sum x^2y$
+\STATE Return $a, b, c$
+\end{algorithmic}
+\end{algorithm}

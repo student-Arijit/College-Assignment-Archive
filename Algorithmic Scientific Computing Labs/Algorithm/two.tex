@@ -1,0 +1,17 @@
+\begin{algorithm}[H]
+\caption{Bisection Method}
+\begin{algorithmic}[1]
+\STATE Choose initial interval $[a,b]$ such that $f(a)f(b) < 0$
+\REPEAT
+    \STATE $c = \dfrac{a+b}{2}$
+    \IF{$f(c) = 0$}
+        \STATE Root found at $c$
+    \ELSIF{$f(c)f(a) < 0$}
+        \STATE $b \gets c$
+    \ELSE
+        \STATE $a \gets c$
+    \ENDIF
+\UNTIL{$|b-a| < \epsilon$}
+\STATE Return $c$ as root
+\end{algorithmic}
+\end{algorithm}

@@ -1,0 +1,12 @@
+\begin{algorithm}[H]
+\caption{Lagrange Interpolation}
+\begin{algorithmic}[1]
+\STATE Given $n$ data points $(x_i,y_i)$
+\STATE Initialize $P(x) = 0$
+\FOR{$i=1$ to $n$}
+    \STATE $L_i(x) = \prod_{\substack{j=1 \\ j \neq i}}^n \dfrac{x-x_j}{x_i-x_j}$
+    \STATE $P(x) \gets P(x) + y_i L_i(x)$
+\ENDFOR
+\STATE Return interpolated value $P(x)$
+\end{algorithmic}
+\end{algorithm}

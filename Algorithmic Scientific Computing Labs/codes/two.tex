@@ -1,0 +1,27 @@
+\begin{verbatim}
+#include <stdio.h>
+#include <math.h>
+
+#define EPS 1e-6
+
+double f(double x) {
+    return x*x*x - x - 2;  // Example: x^3 - x - 2 = 0
+}
+
+int main() {
+    double a = 1, b = 2, c;
+    if(f(a) * f(b) >= 0) {
+        printf("Invalid interval\n");
+        return 0;
+    }
+    while((b - a) >= EPS) {
+        c = (a + b) / 2;
+        if(f(c) == 0.0) break;
+        else if(f(c) * f(a) < 0) b = c;
+        else a = c;
+    }
+    printf("Root = %lf\n", c);
+    return 0;
+}
+
+\end{verbatim}

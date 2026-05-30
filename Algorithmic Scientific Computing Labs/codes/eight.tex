@@ -1,0 +1,104 @@
+\begin{verbatim}
+a) Linear Fit y = a + bx:
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    double x[20], y[20], sumx=0, sumy=0, sumxy=0, sumx2=0, a, b;
+    printf("Enter number of data points: ");
+    scanf("%d", &n);
+    for(i=0;i<n;i++) {
+        scanf("%lf %lf", &x[i], &y[i]);
+        sumx+=x[i]; sumy+=y[i];
+        sumxy+=x[i]*y[i]; sumx2+=x[i]*x[i];
+    }
+    b = (n*sumxy - sumx*sumy)/(n*sumx2 - sumx*sumx);
+    a = (sumy - b*sumx)/n;
+    printf("Best fit line: y = %.4f + %.4fx\n", a, b);
+    return 0;
+}
+
+b) Exponential Fit → Model:
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int n, i;
+    double x[20], y[20], sumx=0, sumy=0, sumxy=0, sumx2=0;
+    double a, b;
+
+    printf("Enter number of data points: ");
+    scanf("%d", &n);
+    printf("Enter x and y values:\n");
+    for(i=0;i<n;i++) {
+        scanf("%lf %lf", &x[i], &y[i]);
+        sumx += x[i];
+        sumy += log(y[i]);   // Taking log of y
+        sumxy += x[i]*log(y[i]);
+        sumx2 += x[i]*x[i];
+    }
+
+    b = (n*sumxy - sumx*sumy) / (n*sumx2 - sumx*sumx);
+    a = exp((sumy - b*sumx)/n);
+
+    printf("Best fit exponential curve: 
+    y = %.4f * e^(%.4f x)\n",
+    a, b);
+    return 0;
+}
+
+c) Polynomial Fit (Quadratic Example) → Model:
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    double x[20], y[20];
+    double sumx=0, sumx2=0, sumx3=0, sumx4=0;
+    double sumy=0, sumxy=0, sumx2y=0;
+    double a, b, c, D, D1, D2, D3;
+
+    printf("Enter number of data points: ");
+    scanf("%d", &n);
+    printf("Enter x and y values:\n");
+    for(i=0;i<n;i++) {
+        scanf("%lf %lf", &x[i], &y[i]);
+        sumx += x[i];
+        sumx2 += x[i]*x[i];
+        sumx3 += x[i]*x[i]*x[i];
+        sumx4 += x[i]*x[i]*x[i]*x[i];
+        sumy += y[i];
+        sumxy += x[i]*y[i];
+        sumx2y += x[i]*x[i]*y[i];
+    }
+
+    // Normal equations in matrix form:
+    // | n     sumx   sumx2 |   | a |   | sumy   |
+    // | sumx  sumx2  sumx3 | * | b | = | sumxy  |
+    // | sumx2 sumx3  sumx4 |   | c |   | sumx2y |
+
+    D  = n*(sumx2*sumx4 - sumx3*sumx3)
+       - sumx*(sumx*sum4 - sumx2*sumx3)
+       + sumx2*(sumx*sumx3 - sumx2*sumx2);
+
+    D1 = sumy*(sumx2*sumx4 - sumx3*sumx3)
+       - sumx*(sumxy*sumx4 - sumx3*sumx2y)
+       + sumx2*(sumxy*sumx3 - sumx2*sumx2y);
+
+    D2 = n*(sumxy*sumx4 - sumx3*sumx2y)
+       - sumy*(sumx*sumx4 - sumx2*sumx3)
+       + sumx2*(sumx*sumx2y - sumxy*sumx2);
+
+    D3 = n*(sumx2*sumx2y - sumxy*sumx3)
+       - sumx*(sumx*sumx2y - sumxy*sumx2)
+       + sumy*(sumx*sumx3 - sumx2*sumx2);
+
+    a = D1/D;
+    b = D2/D;
+    c = D3/D;
+
+    printf("Best fit quadratic curve: 
+    y = %.4f + %.4fx + %.4fx^2\n", a, b, c);
+    return 0;
+}
+
+\end{verbatim}

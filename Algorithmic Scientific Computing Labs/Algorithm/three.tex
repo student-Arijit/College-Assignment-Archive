@@ -1,0 +1,10 @@
+\begin{algorithm}[H]
+\caption{Newton-Raphson Method}
+\begin{algorithmic}[1]
+\STATE Choose initial guess $x_0$
+\REPEAT
+    \STATE $x_{k+1} = x_k - \dfrac{f(x_k)}{f'(x_k)}$
+\UNTIL{$|x_{k+1} - x_k| < \epsilon$}
+\STATE Return $x_{k+1}$ as root
+\end{algorithmic}
+\end{algorithm}

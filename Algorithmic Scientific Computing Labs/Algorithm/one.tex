@@ -1,0 +1,12 @@
+\begin{algorithm}[H]
+\caption{Gauss-Seidel Iterative Method}
+\begin{algorithmic}[1]
+\STATE Initialize $x^{(0)}$ with initial guess
+\REPEAT
+    \FOR{$i = 1$ to $n$}
+        \STATE $x_i^{(k+1)} = \dfrac{1}{a_{ii}}\left(b_i - \sum_{j=1}^{i-1} a_{ij}x_j^{(k+1)} - \sum_{j=i+1}^n a_{ij}x_j^{(k)}\right)$
+    \ENDFOR
+\UNTIL{convergence ($|x^{(k+1)} - x^{(k)}| < \epsilon$)}
+\STATE Return solution vector $x$
+\end{algorithmic}
+\end{algorithm}

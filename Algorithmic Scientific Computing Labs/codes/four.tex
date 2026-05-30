@@ -1,0 +1,41 @@
+\begin{verbatim}
+#include <stdio.h>
+#define N 3
+
+int main() {
+    float a[N][2*N], ratio;
+    int i, j, k;
+
+    printf("Enter matrix (%dx%d):\n", N, N);
+    for(i = 0; i < N; i++)
+        for(j = 0; j < N; j++)
+            scanf("%f", &a[i][j]);
+
+    // Append identity matrix
+    for(i = 0; i < N; i++)
+        for(j = N; j < 2*N; j++)
+            a[i][j] = (i == (j-N)) ? 1 : 0;
+
+    // Gauss-Jordan
+    for(i = 0; i < N; i++) {
+        float diag = a[i][i];
+        for(j = 0; j < 2*N; j++) a[i][j] /= diag;
+        for(k = 0; k < N; k++) {
+            if(k != i) {
+                ratio = a[k][i];
+                for(j = 0; j < 2*N; j++)
+                    a[k][j] -= ratio * a[i][j];
+            }
+        }
+    }
+
+    printf("Inverse matrix:\n");
+    for(i = 0; i < N; i++) {
+        for(j = N; j < 2*N; j++)
+            printf("%8.4f ", a[i][j]);
+        printf("\n");
+    }
+    return 0;
+}
+
+\end{verbatim}

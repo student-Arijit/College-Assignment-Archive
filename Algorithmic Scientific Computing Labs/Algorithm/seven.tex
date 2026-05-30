@@ -1,0 +1,30 @@
+\\{(a) Euler’s Method}
+\begin{algorithm}[H]
+\caption{Euler’s Method}
+\begin{algorithmic}[1]
+\STATE Input $x_0, y_0, h, xn$
+\STATE $x \gets x_0, y \gets y_0$
+\WHILE{$x < xn$}
+    \STATE $y \gets y + h f(x,y)$
+    \STATE $x \gets x + h$
+\ENDWHILE
+\STATE Return $y$
+\end{algorithmic}
+\end{algorithm}
+{(b) Runge-Kutta 4th Order}
+\begin{algorithm}[H]
+\caption{Runge-Kutta 4th Order}
+\begin{algorithmic}[1]
+\STATE Input $x_0, y_0, h, xn$
+\STATE $x \gets x_0, y \gets y_0$
+\WHILE{$x < xn$}
+    \STATE $k_1 = h f(x,y)$
+    \STATE $k_2 = h f(x + h/2, y + k_1/2)$
+    \STATE $k_3 = h f(x + h/2, y + k_2/2)$
+    \STATE $k_4 = h f(x + h, y + k_3)$
+    \STATE $y \gets y + (k_1 + 2k_2 + 2k_3 + k_4)/6$
+    \STATE $x \gets x + h$
+\ENDWHILE
+\STATE Return $y$
+\end{algorithmic}
+\end{algorithm}

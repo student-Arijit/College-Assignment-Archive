@@ -1,0 +1,20 @@
+\begin{algorithm}[H]
+\caption{Gauss Elimination Method}
+\begin{algorithmic}[1]
+\STATE Form augmented matrix $[A|b]$
+\FOR{$k = 1$ to $n-1$}
+    \FOR{$i = k+1$ to $n$}
+        \STATE $m = a_{ik}/a_{kk}$
+        \FOR{$j = k$ to $n+1$}
+            \STATE $a_{ij} = a_{ij} - m \cdot a_{kj}$
+        \ENDFOR
+    \ENDFOR
+\ENDFOR
+\STATE Back substitution:
+\STATE $x_n = a_{n,n+1}/a_{nn}$
+\FOR{$i = n-1$ down to $1$}
+    \STATE $x_i = (a_{i,n+1} - \sum_{j=i+1}^n a_{ij}x_j)/a_{ii}$
+\ENDFOR
+\STATE Return solution vector $x$
+\end{algorithmic}
+\end{algorithm}
